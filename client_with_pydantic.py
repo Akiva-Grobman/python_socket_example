@@ -11,9 +11,9 @@ def main():
     stringified_data = data.json()
     data_size = len(stringified_data.encode())
     data_type = 1
-    date_with_details = struct.pack('>B', data_type) + struct.pack('>I', data_size) + stringified_data.encode()
+    data_with_details = struct.pack('>B', data_type) + struct.pack('>I', data_size) + stringified_data.encode()
     client_socket.connect((connection_details.HOST, connection_details.PORT))
-    client_socket.sendall(date_with_details)
+    client_socket.sendall(data_with_details)
 
 
 if __name__ == '__main__':
